@@ -1,0 +1,116 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+
+body {
+    color: #0c1618;
+    font-size: 1.1rem;
+    background: url(./images/nightskymoon.png);
+    background-size: cover;
+  
+}
+   
+article {
+    background-image: linear-gradient(to bottom right, rgb(0,65,106,1), rgb(228,229,230,1), rgba(233, 214, 159, 1));
+    rgb(41,128,185)
+    opacity: 1;
+    height: 100vh;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+
+.navbar, .nav-list {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.2rem;
+    align-items: center;
+    
+    justify-content: space-between;
+    padding: 0 2rem 0 1rem;
+}
+.navbar {
+background-color: rgb(67, 87, 103, 0.95);
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    opacity: .5;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem 0;
+    
+}
+
+.user-input-form {
+    display: flex;
+}
+
+.input-text {
+    padding-right:.5rem;
+    margin: 0 .7rem 0 0;
+}
+
+button {
+        text-transform: uppercase; 
+        color: #162326;
+        font-weight: 900;
+        background-color: #38CFD9;
+        padding: .1em 2em;
+        border-radius: 100px;
+        cursor: pointer;
+    }
+button:hover,
+ button:focus {
+    opacity: .6;
+    transition: 300ms;
+   
+}
+.weather-response {
+
+}
+
+.weather-container {
+    background-image: linear-gradient(to bottom right, rgb(189,195,199,.4), rgb(44,62,80, .6));
+    height: 70vh;
+    width: 90%;
+    margin: 0 auto;
+}
