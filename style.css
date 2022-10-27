@@ -34,8 +34,9 @@ body {
 }
    
 article {
-    background-image: linear-gradient(to bottom right, rgb(0,65,106,1), rgb(228,229,230,1), rgba(233, 214, 159, 1));
-    rgb(41,128,185)
+    background-image: linear-gradient( to bottom right, rgba(44, 74, 93, 0.99), rgba(177, 147, 118, 0.696), rgba(152, 123, 66, 0.78));
+
+
     opacity: 1;
     height: 100vh;
 }
@@ -59,7 +60,7 @@ select {
     padding: 0 2rem 0 1rem;
 }
 .navbar {
-background-color: rgb(67, 87, 103, 0.95);
+background-color: rgba(21, 31, 39, 0.993);
 }
 
 .nav-link {
@@ -80,20 +81,78 @@ background-color: rgb(67, 87, 103, 0.95);
     
 }
 
+
+
 .user-input-form {
     display: flex;
+    
+
+}
+
+label[for=country-name] {
+    position: relative;
+    display: flex;
+    width: 250px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.container-autocomplete {
+    position: relative;
+    display: inline-block;
+    padding: .4rem 2rem .4rem 2.5rem;
+}
+
+
+
+.suggestions {
+    position: absolute;
+    background-color: #30373a8e;
+    top: 50%;
+    padding: 0 .2rem .3rem .5rem;
+    width: 95%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    max-height: 68vh;
+    overflow-y: auto;
+   
+}
+
+.suggestions li {
+    align-items: center;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.suggestions li:hover, .suggestions li:focus {
+    opacity: .4;
+    background-color: #30373ad1;
+    padding: 0 .1rem;
+    transition: 150ms;
+    width: 100%;
 }
 
 .input-text {
-    padding-right:.5rem;
-    margin: 0 .7rem 0 0;
+    padding-right: .1rem;
+    margin: .5rem .7rem .9rem 0;
+    border-radius:4px;
+    height: 35px;
+    
+   
 }
 
 button {
         text-transform: uppercase; 
-        color: #162326;
+        height: 35px;
+        color: #cfd8db;
         font-weight: 900;
-        background-color: #38CFD9;
+        background-color: #090a0a;
+        margin: .5rem 0 0 .7rem;
         padding: .1em 2em;
         border-radius: 100px;
         cursor: pointer;
@@ -104,13 +163,43 @@ button:hover,
     transition: 300ms;
    
 }
-.weather-response {
 
-}
+
 
 .weather-container {
+   width: 100%;
+   margin: 0 auto;
+}
+
+.weather-response {
     background-image: linear-gradient(to bottom right, rgb(189,195,199,.4), rgb(44,62,80, .6));
     height: 70vh;
     width: 90%;
     margin: 0 auto;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+}
+
+.html-container {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 .5rem;
+    margin: 0 auto;
+}
+
+.city-state {
+    font-size: 2rem;
+}
+
+.response-text {
+    color: white;
+    margin: .7rem 0;
+  
 }

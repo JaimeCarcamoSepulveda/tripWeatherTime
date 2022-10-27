@@ -12,7 +12,7 @@
 <body> 
     <header>
         <nav class="navbar">
-            <img src="" alt="website logo">
+            <img src="./images/logo.svg" style="width: 8rem; padding: .4rem" alt="website logo">
             <ul class="nav-list">
                 <li class="nav-item"><a href="" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="" class="nav-link">About</a></li>
@@ -22,27 +22,40 @@
     </header> 
 <article>
         <section class="form-section">
-            <div class="container">
-                <form class="user-input-form" action="">
+            <div class="container-autocomplete">
+                <form autocomplete="off" class="user-input-form" id="form" action="">
+                
                     <label for="city-name">
-                        <input class="input-text" type="text" placeholder="enter city name" id="city-name">
+                        <input class="input-text" type="text" placeholder=" Enter city name" id="city-name">
                     </label>
 
                     <label for="state-name">
-                        <input class="input-text" type="text" placeholder="enter state name" id="state-name">
-                    </label>
+                        <input class="input-text" type="text" placeholder=" Enter state name" id="state-name">
+                    </label> <br>
 
                     <label for="country-name">
-                        <input class="input-text" type="text" placeholder="United States" id="country-name">
+                        <input class="input-text" type="text" value="" placeholder=" Enter country name" id="country-name">
+                        <ul class="suggestions">
+                            
+                        </ul>
+                    </label>
+
+                    <label for="unit-name">
+                        <select class="input-text" name="unit-name" id="unit-name" form="user-input-form">
+                            <option value="fahrenheit"> Fahrenheit</option>
+                            <option value="celsius"> Celsius</option>
+                        </select>
                     </label>
                     <button>go</button>
                 </form>
             </div>
+         
         
         </section>
     <main>
-        <section class="weather-response">
-            <div class="weather-container">
+        <section class="weather-container">
+            <div class="weather-response">
+    
 
             </div>
 
