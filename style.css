@@ -2,6 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  
 }
 
 /* Remove default margin */
@@ -14,8 +15,10 @@ p,
 figure,
 blockquote,
 dl,
-dd {
+dd,
+button {
   margin: 0;
+  padding: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -24,22 +27,106 @@ ol {
   list-style: none;
 }
 
+html {
+    min-height: 100vh;
+}
 
 body {
     color: #0c1618;
     font-size: 1.1rem;
     background: url(./images/nightskymoon.png);
+    opacity: .99;
     background-size: cover;
     height: 100vh;
+    min-width: fit-content;
+    overflow-x: hidden;
+    
 }
+
+
+.navbar {
+    background-color: rgba(21, 31, 39, 0.4);
+    padding: 0 .1rem;
+    border-radius: 10px 0;
+    
+}
+
+/*-- HAMBURGER MENU CSS HERE ------------------------------------------*/
+.primary-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(61, 67, 67, 0.4);
+    
+    
+    
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(0.2rem);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.nav-list[data-visible] {
+    transform: translateX(0%);
+    display: block;
+}
+
+.nav-item {
+    letter-spacing: .2rem;
+}
+
+#logo {
+    width: 7rem; 
+    padding: .4rem;
+}
+
+.mobile-nav-toggle, #nav-toggle {
+    display: none;
+}
+
+/* continue below in medium size device media query*/
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+}
+.nav-link:hover {
+    opacity: .5;
+    backdrop-filter: blur(0.8rem);
+    background-color: rgba(178, 162, 162, 0.6);
+    display: block;
+   
+    
+    
+}
+
+
+/*-- HAMBURGER MENU CSS ENDS HERE ------------------------------------------*/
    
 article {
-    background-image: linear-gradient( to bottom right, rgba(44, 74, 93, 0.99), rgba(177, 147, 118, 0.696), rgba(152, 123, 66, 0.78));
-
-
     opacity: 1;
-    height: 100vh;
+    min-height: 140vh;
 }
+
+#sky-display {
+    background-image: linear-gradient( to bottom left, rgba(56, 67, 113, 0.84), rgba(158, 207, 223, 0.96), rgba(244, 144, 79, 0.938));
+    opacity: 1;
+    min-height: 140vh;
+ 
+}
+
+
 
 /* Inherit fonts for inputs and buttons */
 input,
@@ -49,72 +136,50 @@ select {
   font: inherit;
 }
 
-
-.navbar, .nav-list {
-    display: flex;
-    gap: 2rem;
-    font-size: 1.2rem;
-    align-items: center;
-    
-    justify-content: space-between;
-    padding: 0 2rem 0 1rem;
-}
-.navbar {
-background-color: rgba(21, 31, 39, 0.993);
-}
-
-.nav-link {
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-    opacity: .5;
-}
-
-
-.user-input-form {
+.user-input-form div {
     display: flex;
     
-
 }
+
+.user-input-form div > * {
+    padding-right: .4rem;
+    margin-top: .6rem;
+}
+
 
 label[for=country-name] {
     position: relative;
     display: flex;
-    width: 250px;
+    width: 12rem;
     color: white;
-    display: flex;
     flex-direction: column;
-    align-content: center;
+    
+    
 }
 
 .container-autocomplete {
     position: relative;
-    display: inline-block;
-    padding: .4rem 2rem .4rem 2.5rem;
+    padding: .5rem;
+    margin: auto;
+    display: flex;
+    
 }
-
 
 
 .suggestions {
     position: absolute;
     background-color: #30373a8e;
-    top: 50%;
-    padding: 0 .2rem .3rem .5rem;
-    width: 95%;
-    left: 0;
-    right: 0;
+    top: 69%;
+    padding: 0 .2rem;
+    width: 94%;
+    left: 2%;
     display: flex;
     flex-direction: column;
     gap: .2rem;
-    max-height: 68vh;
+    max-height: 50vh;
     overflow-y: auto;
    
 }
-
 .suggestions li {
     align-items: center;
     align-self: flex-start;
@@ -122,110 +187,715 @@ label[for=country-name] {
 }
 
 .suggestions li:hover, .suggestions li:focus {
-    opacity: .4;
-    background-color: #30373ad1;
-    padding: 0 .1rem;
+    opacity: .5;
+    background-color: #16181ad1;
     transition: 150ms;
     width: 100%;
 }
 
 .input-text {
-    padding-right: .1rem;
-    margin: .5rem .7rem .9rem 0;
     border-radius:4px;
-    height: 35px;
+    height: 2.2rem;
+    font-weight: 500; 
+}
+button {
+    margin-top: .5rem;
     
-   
 }
 
-button {
+#button, button {
         text-transform: uppercase; 
-        height: 35px;
+        height: 2.2rem;
+        text-align: center;
         color: #cfd8db;
         font-weight: 900;
-        background-color: #090a0a;
-        margin: .5rem 0 0 .7rem;
-        padding: .1em 2em;
-        border-radius: 100px;
+        background-color: #2b2b29ea;
+        padding: .1em .9em;
+        border-radius: 15rem;
+        border: none;
         cursor: pointer;
     }
-button:hover,
- button:focus {
-    opacity: .6;
-    transition: 300ms;
+button:hover,button:focus,
+#button:hover,#button:focus {
+    opacity: .8;
+    background-color: #2d1f17f0;
+    transition: 250ms;
    
 }
-
-
 
 .weather-container {
-   width: 95%;
-   opacity: .9;
-   margin: 0 auto;
+   width: 100%;
+   min-height: 100vh;
+   opacity: 1;
+   margin: .5rem auto 0rem auto;
    position: absolute;
-   left: 2.5%;
+   font-family: sans-serif;
 }
 
+/*Plane flying across screen*/
 #plane-flying {
-    opacity: 1;
+    opacity: 0.7;
     position: relative;
     z-index: 1;
-    translate: -120% 0;
-    width: 6rem;
-   
- 
- 
+    translate: -200% 1880%;
+    scale: 3;
+    /* width: 6rem; */
+    width: 3rem;
+    rotate: y 0deg;
 }
-
-
-
 .weather-container .fly-away {
-    animation: plane-flight 2220ms linear forwards 1;
+    animation: plane-flight 2600ms ease-in forwards 1;
+    transform-origin: center;
+    transform-box: fill-box;
 }
-
 @keyframes plane-flight {
-    0%   { translate:-120% 80%; scale: 2.8; rotate: y 55deg; }
-    35%  { translate:350% 180%; scale: 1.5; rotate: y 35deg; rotate: x 35deg;}
-    70%  { translate:650% 250%; scale: 2; rotate: 8deg; rotate: x 55deg;}
-    100% { translate:1700% 40%; scale: 5; rotate: -5deg; }
+
+    0% { translate: -100% 1700%; scale: 1; rotate: z 12deg; }
+   
+    90% { translate: 2200% 600%; scale: 3; rotate: z 8deg; opacity: .6; }
+    100% { translate: 2900% 300%; scale: 4.5; rotate: z 8deg; opacity: .1; }
+
 }
 
 
-.weather-dashboard {
-    background-image: linear-gradient(to bottom right, rgb(189,195,199,.2), rgb(44,62,80, .4));
-    height: 70vh;
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 10px;
+
+#left-light, #right-light {
+    fill: yellow;
+    scale: 1;
+    animation: blinking-lights 1s linear forwards infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes blinking-lights {
+    0% {
+        fill: rgb(210, 179, 55, .8);
+        transform: scale(1) scaleX(2) rotateX(80deg);
+    }
+    10% {
+        fill: rgba(226, 197, 94, 0.30);
+       transform: scale(14) scaleX(6) rotateX(80deg);
+    } 
+    100% {
+        fill: rgba(226, 197, 94, 0.15);
+        transform: scale(2) scaleX(1) rotateX(90deg);
+    }
+}
+
+#plane-front {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    position: inherit;
+    width: auto;
     opacity: 1;
 }
 
-.weather-results {
+#plane-front > * {
+    margin-top: 14rem;
+}
+
+#propellers > * {
+    animation: turn-engines 500ms linear forwards infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+@keyframes turn-engines {
+    from {
+        transform: rotateZ(0deg)
+    }
+    to {
+        transform: rotateZ(360deg)
+    }
+}
+
+#aircraft-front-view > *{
+    animation: plane-hover 5s ease-in-out alternate-reverse infinite ;
+    transform-origin: bottom;
+}
+
+@keyframes plane-hover {
+    0% {
+        transform: rotateX(0deg) rotateZ(0deg);
+    }
+    33% {
+        transform: rotateX(12deg) rotateZ(10deg)rotateY(-5deg);
+    }
+   
+    66% {
+        transform: rotateX(-7deg) rotateZ(-4deg) rotateY(-1deg);
+    }
+    100% {
+        transform: rotateX(10deg) rotateZ(0deg) rotateY(0deg);
+    }
+}
+
+
+.close-up > * {
+    position: relative;
+    width: 6rem;
+    transform: scale(2.5);
+    top: 30vh;
+    left: 45vw;
+    animation: 2000ms ease-out 1 forwards plane-closing-in;
+}
+
+@keyframes plane-closing-in {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(10); 
+    }
+
+}
+
+.weather-dashboard {
+    background-image: linear-gradient(to top right, rgba(42, 54, 62, 0), rgba(92, 121, 108, 0));
+    height: 100vh;
+    max-width: 100vw;
+    width: 100%;
+    min-width: fit-content;
+    left: 0;
+    margin: 0 auto;
+    padding: 0 .5rem;
+    border-radius: 10px;
     display: flex;
-    flex-direction: row;
-    width: fit-content;
-    gap: 2rem;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: .3rem;
+    position: inherit;
+    opacity: 1;
+    
+
 }
 
 .html-container {
-    display: flex;
-    margin-top: 1rem;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: inherit;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40vh;
+    min-width: 100%;
+    width: 100vh;
+    background-color: rgba(33, 37, 48, 0.5);
+    height: fit-content;
+    font-size: 1.3rem;
+    border-radius: 1.2rem;
+    
+}
+.html-container p {
+    line-height: 1.3;
 }
 
-.city-state {
+
+.weather-results {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    min-height: 20rem;
+}
+
+.response-title {
+    max-width: 80%;
+    min-height: 4rem;
+    height: auto;
     font-size: 2rem;
+    text-align: center;
+    padding-top: .2rem;
+    color: #c1b2acec;
+    margin: 0 auto; 
+}
+#country, #forecast {
+    color: white;
 }
 
 .response-text {
-    color: white;
+    color: rgb(169, 152, 57);
     margin: .7rem 0;
+    font-weight: 500;
+    line-height: auto;
+    text-align: center;
   
 }
+
+.carousel {
+    position: relative;  
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20rem;
+    
+}
+
+.carousel-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+    position: absolute;
+    inset: 0;
+    opacity: 0;   
+    transition: 600ms all ease-in-out;
+    transition-delay: 200ms;
+    font-size: 1.2rem;
+    text-align: end;
+    
+
+}
+
+.carousel-item[data-active="true"] {
+    text-align: center;
+    opacity: 1;
+    transition-delay: 100ms;
+    color: white;
+    font-size: 1.3rem;
+    align-content: center;
+}
+
+.carousel-button {
+    position: absolute;
+    z-index: 3;
+    background: none;
+    color: rgba(237, 237, 229, 0.888);
+    border-radius: .2rem;
+    margin: 0;
+    font-size: 1.8rem;
+    top: 50%;
+    width: 2rem;
+    padding: 0 .2rem;
+    transform: translateY(-50%); 
+    cursor: pointer;
+
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+    background-color: rgba(226, 223, 238, 0.173);
+    color: rgba(45, 47, 39, 0.892);
+    outline: none;
+
+}
+
+.carousel-button.prev {
+    left: .2rem;
+}
+.carousel-button.next {
+    right: .2rem;
+}
+
+
+.time-zone {
+    grid-column: 1 /3;
+    max-width: 100%;
+    height: auto;
+    font-weight: 300;
+    color: rgb(218, 218, 205);
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    line-height: 1.3rem;
+    font-size: 1rem;
+    padding: 2rem 3rem 1rem 3rem;
+}
+
+
+.highlight {
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: rgb(234, 174, 150);
+}
+
+.highlight.country, .highlight.time{
+    font-size: 1.6rem;
+    color: rgb(239, 228, 228)
+}
+
+
+#clock {
+    font-size: 1.9rem;
+    color:#1b2122;
+}
+
+/*Styling font-awesome icons */
+i {
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 0 0 0 .3rem;
+}
+
+#signPlus, #signMinus {
+    color: rgb(242, 242, 235);
+    font-size: 1.8rem;
+    padding: .2rem;
+    
+}
+
+#wind {
+    color: rgb(168, 234, 234);
+}
+
+#clouds {
+    color: rgb(175, 181, 185);
+}
+
+#temperature {
+    color:  rgb(19, 38, 56);
+}
+
+
+#weather-button {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+#weather-button button { 
+    background-color: #26292a27;
+    width: fit-content;
+    outline: #1f24257a;
+    border: #e2e6e7 2px solid;
+    border-radius: 0%;
+    cursor: pointer;
+    z-index: 2;
+}
+/*larger size screens from 1024 t0 768px*/
+@media screen and (max-width: 1024px) {
+    #sky-display {
+        min-height: fit-content;
+        width: 100vw;
+        height: 100vh;
+    }
+
+
+    #plane-front > * {
+        scale: .7;
+        margin-top: 0rem;
+    }
+    .html-container {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        width: auto;
+    } 
+    .weather-results {
+        padding-top: 2rem;
+        padding-bottom: 11rem;
+    } 
+    .html-container p {
+        font-size: 1rem;
+    }
+    .carousel-item[data-active="true"] {
+        width: 18rem;
+        margin: auto;
+    }
+
+    .weather-results p {
+        width: 18rem;
+        margin: auto;
+    }
+
+    .response-title {
+        max-width: 80%;
+        height: auto;
+        min-height: 1rem;
+        font-size: 1.5rem;
+        text-align: center;
+        padding-top: .2rem;
+        color: #c1b2acec;
+        margin: 0 auto; 
+    }
+    .time-zone {
+        font-weight: 200;
+        text-align: center;
+        line-height: 1.1rem;
+        padding: 1.5rem 1rem 1rem 1rem;
+    }
+    .highlight.time, .highlight.country {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    #signPlus, #signMinus {
+        font-size: 1.4rem;
+        padding: .1rem;
+    }
+}
+
+/* --------------------  Medium size screens from 768px t0 531px       ----------------------------------- */
+@media screen and (max-width: 768px) {
+
+/*Hamburger Menu start */
+    .nav-list{
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        gap: 4rem;
+        padding: min(20vh, 11rem) 0;
+        inset: 0 0 0 40%;
+        /* padding: min(20vh, 11rem) 3rem; */
+        z-index: 7;
+        transform: translateX(100%);
+        transition: transform 500ms ease-in-out;
+    }
+
+    
+    .nav-link{
+        display: block;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .nav-link:hover {
+        padding: auto;
+        backdrop-filter: blur(0.2rem);
+        background-color: rgba(0, 0, 0, 0.4);
+      
+    }
+    
+
+ .mobile-nav-toggle, #nav-toggle {
+        position: absolute;
+        width: 4rem;
+        aspect-ratio: 1;
+        border: none;
+        display: block;
+        top: 2rem;
+        right: 1rem;
+        z-index: 8;
+        color: #fff; 
+        background-color: rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+    .mobile-nav-toggle, #nav-toggle > * {
+        color: rgba(196, 217, 221, 0.7);
+        font-size: 2.8rem;
+    }
+
+    .user-input-form div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .3rem;
+    }
+    
+    .user-input-form div > * {  
+        margin-top: .6rem;
+    }
+        
+    button {
+        flex: none;
+    }
+
+    .html-container {
+        display: flex;
+        flex-direction: column;
+        min-width: 220px;
+        width: 100%;
+        height: fit-content;
+        
+    }  
+    .weather-results {
+        margin-top: 2rem;
+        padding-bottom: 6rem;
+
+    }
+
+    #plane-front > * {
+        scale: .4;
+        margin-top: 0rem;
+        
+
+    }
+    .weather-results p {
+        width: auto;
+        margin: auto;
+    }
+    .carousel-item {
+        transition: 600ms all ease-in-out;
+        transition-delay: 200ms;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .carousel-item[data-active="true"] {
+        width: auto;
+        margin: auto;
+    }
+
+    .time-zone {
+        font-weight: 200;
+        text-align: center;
+        line-height: 1.1rem;
+        padding: 0rem .6rem .5rem .6rem;
+    }
+    .highlight.time, .highlight.country {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    #signPlus, #signMinus {
+        font-size: 1.4rem;
+        padding: .1rem;
+    }
+
+}
+
+/* Small size screens from 530px t0 230px */
+@media screen and (max-width: 530px) {
+    .nav-list{ 
+        font-size: 2rem;
+        inset: 0 0 0 30%;
+    }
+    .html-container {
+        min-width: 300px;
+        width: 100%;
+        height: fit-content;
+        margin: auto;
+        padding: auto;  
+    }
+
+    .carousel-item[data-active="true"] {
+        width: 70%;
+    }
+
+    .time-zone {
+        font-weight: 200;
+        text-align: center;
+        line-height: .6rem;
+        padding: 0 .8rem .5rem .8rem;
+    }
+
+    .highlight.time, .highlight.country {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    #signPlus, #signMinus {
+        font-size: 1.2rem;
+        padding: .1rem;
+    }
+
+    #plane-front {
+        display: flex;
+        width: fit-content;
+        align-content: center;
+        opacity: 1;
+    }
+    
+    #plane-front > * {
+        margin-top: 4rem;
+        left: 40vw;
+        scale: 0.28;
+
+    }
+ 
+}
+
+/* footer */
+
+.footer {
+    background-color: rgba(34, 36, 36, 0.4);
+    color: rgb(169, 152, 57);
+    font-size: 1.5rem;
+    text-align: center;
+    background-blend-mode: multiply;
+    position: static;
+    bottom: 0;
+}
+
+#footer {
+    position: sticky;
+    bottom: 0%;
+}
+
+.footer a {
+    color: inherit;
+    text-decoration: none;
+}
+.footer__link {
+    font-weight: bold;
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: .7;
+
+}
+
+.footer__link:hover {
+    text-decoration: underline ;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin:  2em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+}
+
+.social-list__link {
+    padding: .5em;
+}
+
+
+/* About section  */
+
+.about-container {
+    min-height: 140vh;
+    background-color: rgba(56, 64, 88, 0.5);
+    color: #fff;
+    line-height: 1;
+    padding: 2rem;
+    margin: auto;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-div img {
+    max-width: 60vw;
+    width: 320px;
+    border-radius: 1rem;
+}
+
+  .contact a {
+    color: rgb(169, 152, 57);
+    text-decoration: none;
+  }
+  /*
+  
+  @media (min-width: 800px) {
+
+    #sky-display { 
+    height: 100vh;
+    }
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    height: 100vh;
+    }
+   .about {
+    width: auto;
+    height: 100vh;
+    }
+  
+
+    .contact {
+        align-self: center;
+        text-align: center;
+    }
+  }
+
+  */
