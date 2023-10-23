@@ -7,6 +7,7 @@ submit event on form initiate getLocation function.
 5th depending on weather recommend dressing attire
 6th add HTML elements in DOM with weather results. 
 */
+import { apiKey1, apiKey2} from './apiKeys';
 
 /* Hamburger Menu code*/
 const navigationUl = document.querySelector("nav ul");
@@ -48,7 +49,7 @@ let URLTimeZone = ''
 let hours24 = ''
 let isItCloudy = ''
 /* -------API WEATHER CALLS -----------------------------------------------------------------*/
-const OpenWeatherMapAPIkey = '87777ca4cdeac88a2810d012d3dff954'
+const OpenWeatherMapAPIkey = apiKey1; 
 /* via template literals completes needed fields for API query to get coordinates city, state--only for USA--and countryISO */
 function getCoordinates (e) {
     containerAutocomplete.setAttribute("style", "display: none");
@@ -70,7 +71,7 @@ function getCoordinates (e) {
     this.reset(); 
 }
 
-const API_KeyTimeZone = `e000b03e24be4f11b13bba28df8da6fc`;
+const API_KeyTimeZone = apiKey2; 
 /* Makes an API request with city, state and isoCountryCode returns latitude and longitude coordinates */
 const getLocation = async (URLCoords) => {
    const response = await fetch(URLCoords);
